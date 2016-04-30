@@ -2,10 +2,91 @@
 <html>
 <head>
 	<title>Welcome to save link extension</title>
+
+	<script src="js/libs/jquery-1.12.3.min.js"></script>
+
+
+	<script type="text/javascript">
+	
+
+
+$.urlParam = function(name, url) {
+    if (!url) {
+     url = window.location.href;
+    }
+    var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(url);
+    if (!results) { 
+        return undefined;
+    }
+    return results[1] || undefined;
+}
+
+
+
+String.prototype.format = String.prototype.f = function() {
+    var s = this,
+        i = arguments.length;
+
+    while (i--) {
+        s = s.replace(new RegExp('\\{' + i + '\\}', 'gm'), arguments[i]);
+    }
+    return s;
+};
+
+
+
+
+
+	$(document).ready(function(){
+		var codeFromRequest = $.urlParam('code')
+
+		$("#code").html(codeFromRequest);
+
+var dataForReq = "client_id=000000004C18B43F&redirect_uri=http://savelink.kissr.com/&client_secret=uDt1J79bvhzrn-SDEs748aL2vqH1fATD&code={0}&grant_type=authorization_code".f(codeFromRequest);
+
+alert(dataForReq);
+
+
+
+
+
+
+//return;
+
+
+
+$.ajax({
+  type: 'POST',
+  url: 'https://login.live.com/oauth20_token.srf',
+  data: dataForReq,
+   datatype : "json",
+   crossDomain: true,
+    contentType: "application/x-www-form-urlencoded",
+  success: function(data){
+    alert(data);
+  },
+  error : function(error) {
+alert('error');
+    },
+});
+
+
+
+
+	})
+
+
+	</script>
+
 </head>
 <body>
 
-<h1>Congratulations!!! You are succesfull logged in into one note and now you can use Save Link Extension</h1>
+<h1>Congratulations!!! You are succesfull logged in into one note and now you can use Save Link Extension!!!</h1>
+
+<p id="code"></p>
+
+<p id="json"></p>
+
 
 </body>
 </html>
