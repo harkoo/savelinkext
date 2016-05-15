@@ -5,6 +5,9 @@ uDt1J79bvhzrn-SDEs748aL2vqH1fATD
 
 
 
+http://savelink.somee.com/
 
-https://login.live.com/oauth20_authorize.srf?client_id=000000004C18B43F&scope=wl.signin%20wl.basic&response_type=code&redirect_uri=http://savelink.kissr.com/
+
+
+https://login.live.com/oauth20_authorize.srf?client_id=000000004C18B43F&scope=wl.signin%20wl.basic&response_type=code&redirect_uri=http://savelink.somee.com/
 https://account.live.com/developers/applications/summary/000000004C18B43F

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaveLinkExtentionWelcome", "SaveLinkExtentionWelcome\SaveLinkExtentionWelcome.csproj", "{13810D65-CF89-4022-BC8F-79E293A26EC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRequest", "TestRequest\TestRequest.csproj", "{8A8CDA20-AB80-42FD-8C24-B5438080C954}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13810D65-CF89-4022-BC8F-79E293A26EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13810D65-CF89-4022-BC8F-79E293A26EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13810D65-CF89-4022-BC8F-79E293A26EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13810D65-CF89-4022-BC8F-79E293A26EC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A8CDA20-AB80-42FD-8C24-B5438080C954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A8CDA20-AB80-42FD-8C24-B5438080C954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A8CDA20-AB80-42FD-8C24-B5438080C954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A8CDA20-AB80-42FD-8C24-B5438080C954}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
