@@ -12,6 +12,17 @@ namespace SaveLinkExtentionWelcome.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult SaveLink(String url, String title, String text)
+        {
+            var linkInfo = new LinkInformation
+            {
+                Text = text,
+                Title = title,
+                Url = url
+            };
+            return View(linkInfo);
+        }
+
         public ActionResult Index()
         {
             var param = Request.QueryString["code"];
@@ -28,21 +39,12 @@ namespace SaveLinkExtentionWelcome.Controllers
             StringContent theContent = new StringContent(body, System.Text.Encoding.UTF8,
                 "application/x-www-form-urlencoded");
             HttpResponseMessage aResponse = client.PostAsync(new Uri(postUrl), theContent).Result;
-
             var res = aResponse.Content.ReadAsStringAsync().Result;
-
-
-
             var tokenInfo = new OAuthToken
             {
                 AuthenticationToken = res
             };
             return View(tokenInfo);
-
-
-
-
-
         }
 
     }

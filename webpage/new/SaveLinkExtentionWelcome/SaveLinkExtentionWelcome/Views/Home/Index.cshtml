@@ -12,7 +12,18 @@
 </head>
 <body>
 <div id="accessToken">
-        @Model.AuthenticationToken
+    @* @Model.AuthenticationToken*@
+    {"token_type":"bearer","expires_in":3600,"scope":"wl.signin wl.basic office.onenote_update wl.offline_access","access_token":"EwCAAq1DBAAUGCCXc8wU/zFu9QnLdZXy+YnElFkAAdZPcCDRqkCIHGAyaGWYCWpULLVW20bDRhvQhD5a6r9zqpLzpqU+9surJv2+eMukPV81oABzJBu1YcSNuSKWMSpqBi2vL2Ng4Bo0YX7R7xmyWV5arc5/7QitcQD5xPrf+4PgNMp3DW+VVlbAzNjZccpHZ//Up29DD9mv1GSw17lu6qkC4sXI1Wv2R5TX2+Vp9wD/4PHyumROPAVJ5gIrC63AcQ3Q7Q2k9TCHUlPcg/CfXC8LM50E8XlpzQAt0+2iYuJWvS89gEyI1KCxWUR6nTPtIPGMwmWehqs/9PueGBqrYCb0UIe5fomnEtmVeWbv1M0kyxY1dtaxnIIb1UZYYBMDZgAACDPtYiW9eq1cUAFv4d590fQ955Aaz4ScOIfbJMuZTDOkYrjNSvdgXeod7GI1eXJKTzmCB1oXaDH4qSuxfo8eMBwufckLovjkADRAzYgy+cW+CUvcxSBeE5us6MCnCdL+QM8s8RywZPGUIb3R55zIRlqcrG+0VzAx4/ZJcwiEdNpxxMO6naNkdPf/vFTBRUr8yyWJITBwumJsSLAdujfezD1jrKWswA7VSrBY1ImsrsGJkIPyWcXAqJZrFu2MLQYxwch/hyoGkk1/GC14oAM1tiT9jVhZOddju1u6BQXVBOzVUVrchuyyM4FTNA58rG/aFBqW8phWxuWVIXwDapHYEuI0oWeYobn7wohPeX5aMBZIsEOkcKek+Wiz63n8c1RKnQbriPuU/yLC2llFsX0UB4IbX2YWfo0Pfd+Vzss1ABq3eRCIlAEd4FSAp0qv6nWj/3RfAIQxsoH7YLl8AQ==","refresh_token":"MCdAMAjqPACAMTgQ38fEB2tRQ4QErFEyl01a2i!rRL00aYa*ZHwId*uUCKzmKFkIXNaUojM0ZPIgISf4G6e0baf0FBVImCtxOIeMWYvYX9hFkECn5mU5GW1gSpKZjdpLZ785AXjyH3vSsxZtNz41KzRldI7vWP3pjCDHOMCYAPt8PoC7V*v!QYYKbKwdtZ2SorYdzGsmWX8SDBzLtZ83lkbTVI8Xv!!ncWEXKIR8I9AgdiUk3wl1Fzok0EFz0oukdvaZYASeEwsOzhr*z3HXuFn4mBXDvmv1ACPBNlQ78!b!zBj!KcEnmvVplqYHQcTwH*L47ItXcmt5SypeA36MjW6MFEqhuPl*xiK*IICuZOwfU","user_id":"5050b94628e73640df8b466b5e596bcd"}
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        var text = document.getElementById("accessToken").textContent;
+        obj = JSON.parse(text);
+        console.log(obj);
+        window.parent.authorize(obj.access_token);
+    });
+</script>
+
 </body>
 </html>

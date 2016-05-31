@@ -113,6 +113,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\LinkInformation.cs" />
     <Compile Include="Models\OAuthToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -141,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\filesystem.pubxml" />
+    <None Include="Views\Home\SaveLink.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

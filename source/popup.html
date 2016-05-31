@@ -7,12 +7,18 @@
   <script src="js/libs/angular.js"></script>
   <script src="js/extApp.js"></script>
   <script src="js/extCtrl.js"></script>
+
+
+
 </head>
 
 <body ng-app="extApp" ng-controller="extCtrl">
   <a href="{{url}}">{{title}}</a> 
 
-<iframe src="https://login.live.com/oauth20_authorize.srf?client_id=000000004C18B43F&scope=wl.signin%20wl.basic&response_type=code&redirect_uri=http://savelink.somee.com/"></iframe>
+<button ng-click="setToken()">SetToken</button>
+
+
+
 
 
 
