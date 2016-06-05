@@ -1,18 +1,21 @@
-﻿@model SaveLinkExtentionWelcome.Models.OAuthToken
-
+﻿@model SaveLinkExtentionWelcome.Models.OperationData
 @{
-    Layout = null;
+    Layout = "~/Views/LayoutView.cshtml"; ;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div id="accessToken">
-        @Model.AuthenticationToken
+<div id="operationData">
+    @Model.JsonData
 </div>
-</body>
-</html>
+
+<div ng-app="extApp" ng-controller="extCtrl">
+   
+     <p>{{Value}}</p>
+
+
+
+</div>
+
+
+
+
+

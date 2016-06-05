@@ -113,15 +113,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\LinkInformation.cs" />
-    <Compile Include="Models\OAuthToken.cs" />
+    <Compile Include="Models\OperationData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\JsonHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
+    <Content Include="js\extApp.js" />
+    <Content Include="js\extCtrl.js" />
+    <Content Include="js\libs\angular.js" />
+    <Content Include="js\libs\jquery-1.12.4.js" />
+    <Content Include="js\storageFac.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -142,7 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\filesystem.pubxml" />
-    <None Include="Views\Home\SaveLink.cshtml" />
+    <Content Include="Views\LayoutView.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

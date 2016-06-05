@@ -1,15 +1,18 @@
 (function(angular) {
 angular.module('extApp').controller('extCtrl', function($scope) {
-  		
-		$scope.setToken = function(){
-			 var newURL = "http://www.youtube.com/watch?v=oHg5SJYRHA0";
-    		 chrome.tabs.create({ url: newURL });
+  		$scope.setToken = function(){
+			 
 		}
 
   		chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
     	$scope.url = tabs[0].url;    
     	$scope.title = tabs[0].title;
-    	$scope.$apply();});
+    	
+    	var newURL = "http://localhost:5959?url=" + $scope.url + "&title="+ $scope.title;
+    	chrome.tabs.create({ url: newURL });
+    		
+
+    });
 
 });
 })(window.angular);
