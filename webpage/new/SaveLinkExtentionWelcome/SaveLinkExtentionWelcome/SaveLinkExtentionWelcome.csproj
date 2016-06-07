@@ -126,7 +126,9 @@
     <Content Include="js\extCtrl.js" />
     <Content Include="js\libs\angular.js" />
     <Content Include="js\libs\jquery-1.12.4.js" />
-    <Content Include="js\storageFac.js" />
+    <Content Include="js\dataFactory.js" />
+    <Content Include="js\oneNoteFactory.js" />
+    <Content Include="templ\pagesList.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
