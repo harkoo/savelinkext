@@ -6,9 +6,9 @@
                 window.location.href = "https://login.live.com/oauth20_authorize.srf?client_id=000000004C18B43F&scope=wl.signin%20wl.basic&response_type=code&redirect_uri=http://savelink.somee.com/";
             }
             oneNoteFactory.getOneNotePages(function(response) {
-                $scope.pages = response.value;
-                $scope.$apply();
-            });
+                $scope.pagesSections = response;
+                //$scope.$apply();
+            },dataFactory.getAuthentificationToken());
            
         }
         var proceedAuthOperation = function() {
