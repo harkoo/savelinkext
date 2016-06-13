@@ -123,6 +123,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="css\savelinkext.css" />
     <Content Include="Global.asax" />
+    <Content Include="img\loading.gif" />
     <Content Include="js\extApp.js" />
     <Content Include="js\extCtrl.js" />
     <Content Include="js\libs\angular.js" />

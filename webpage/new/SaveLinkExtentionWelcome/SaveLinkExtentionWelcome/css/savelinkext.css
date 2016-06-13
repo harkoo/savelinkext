@@ -3,6 +3,9 @@
     float: left;
 }
 
+#operationData {
+    display: none;
+}
 
 #sectedPageInfo {
      margin-top: 16px;
