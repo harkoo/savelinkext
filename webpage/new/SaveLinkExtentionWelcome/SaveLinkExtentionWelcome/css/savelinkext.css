@@ -11,3 +11,29 @@
      margin-top: 16px;
     display: inline-block;
 }
+
+.section {
+    background-color: blueviolet;
+    width: 100px;
+    height: 20px;
+    margin: 10px;
+}
+
+.page {
+    background-color: mediumorchid ;
+    width: 200px;
+    height: 17px;
+    margin: 5px;
+}
+
+.sectionpages {
+    display: inline-block;
+    line-height: normal;
+    vertical-align: middle;
+}
+
+.section {
+     display: inline-block;
+     line-height: normal;
+     vertical-align: middle;
+}
