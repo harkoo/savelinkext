@@ -1,10 +1,10 @@
 ﻿<ul>
-    <li ng-repeat="sectionItem in pagesSections">
+    <li ng-repeat="sectionItem in pagesSections" ng-click="sectionClick(sectionItem)">
         
         <span>{{sectionItem.section.name}}</span>
         <ul>
-            <li ng-repeat="page in sectionItem.pages">
-                <span>{{page.title}}</span>
+            <li ng-repeat="page in sectionItem.pages" ng-show="sectionItem.active">
+                <span ng-click="pageClick()" >{{page.title}} {{valueFromDirectiveScope}}</span>
             </li>
         </ul>
     </li>

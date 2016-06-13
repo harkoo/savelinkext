@@ -23,10 +23,11 @@
         }
 
 
-        $scope.Value = $scope.initialData.OperationType;
-        $scope.pages = [];
+        $scope.value = $scope.initialData.OperationType;
 
-
+        $scope.selectPage = function(page) {
+            $scope.selectedPage = page.title;
+        };
 
     });
 })(window.angular);

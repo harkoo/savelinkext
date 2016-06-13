@@ -1,0 +1,10 @@
+﻿#pageSelectionblock {
+    display: inline-block;
+    float: left;
+}
+
+
+#sectedPageInfo {
+     margin-top: 16px;
+    display: inline-block;
+}

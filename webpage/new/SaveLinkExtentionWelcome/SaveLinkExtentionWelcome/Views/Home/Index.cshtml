@@ -8,9 +8,14 @@
 </div>
 
 <div ng-app="extApp" ng-controller="extCtrl">
-   
-    <ng-tree></ng-tree>
 
+    <div id="pageSelectionblock">
+        <ng-tree pages-sections="pagesSections" select-page-func="selectPage(page)"></ng-tree>
+    </div>
+
+    <div ng-if="selectedPage" id="sectedPageInfo">
+        You selected: {{selectedPage}}
+    </div>
 
 
 </div>
