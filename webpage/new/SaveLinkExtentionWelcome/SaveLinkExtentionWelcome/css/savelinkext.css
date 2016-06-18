@@ -1,13 +1,14 @@
 ﻿#pageSelectionblock {
     display: inline-block;
     float: left;
+    width: 350px;
 }
 
 #operationData {
-    display: none;
+   /* display: none;*/
 }
 
-#sectedPageInfo {
+#selectedPageInfo {
      margin-top: 16px;
     display: inline-block;
 }

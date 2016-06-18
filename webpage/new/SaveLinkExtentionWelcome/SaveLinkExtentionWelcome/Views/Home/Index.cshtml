@@ -13,8 +13,8 @@
         <ng-tree pages-sections="pagesSections" select-page-func="selectPage(page)"></ng-tree>
     </div>
 
-    <div ng-if="selectedPage" id="sectedPageInfo">
-        You selected: {{selectedPage}}
+    <div id="selectedPageInfo">
+        <ng-save-link-dialog />
     </div>
 
 

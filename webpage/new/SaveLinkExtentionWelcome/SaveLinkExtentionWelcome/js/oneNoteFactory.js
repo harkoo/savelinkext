@@ -35,6 +35,26 @@
             });
         }
 
+        factory.getPageContent = function (callback, token) {
+            $http(
+            {
+                method: 'GET',
+                url: "https://www.onenote.com/api/v1.0/me/notes/pages",
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                    'Content-Type': 'application/json'
+                }
+            }).success(function (data) {
+                var groupedPages = groupBySection(data.value);
+                callback(groupedPages);
+            }).
+        error(function (response) {
+
+        });
+        }
+
+
+
         return factory;
 
 

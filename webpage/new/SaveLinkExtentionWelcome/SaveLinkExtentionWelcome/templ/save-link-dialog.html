@@ -1,0 +1,15 @@
+﻿<div>
+    Link Title : <input ng-model="linkInfo.title" />    
+</div>
+<div>
+    Link Description : <input ng-model="linkInfo.text" />
+</div>
+<div>
+    Link Url : <input ng-model="linkInfo.url" disabled="disabled" />
+</div>
+
+<div ng-if="!selectedPage" id="selectPageLabel">Select the page for link insertion, please.</div>
+<div ng-if="selectedPage" id="selectedPage">
+    <p>You selected: {{selectedPage.title}}<p>
+    <input type="button" value="Save link to page" ng-click='saveLinkInfoToPage(selectedPage)'>
+</div>

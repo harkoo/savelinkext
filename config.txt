@@ -4,10 +4,20 @@ Client Secret
 uDt1J79bvhzrn-SDEs748aL2vqH1fATD
 
 
-
+Redirect url for authentification
 http://savelink.somee.com/
 
 
 
 https://login.live.com/oauth20_authorize.srf?client_id=000000004C18B43F&scope=wl.signin%20wl.basic&response_type=code&redirect_uri=http://savelink.somee.com/
+
+
+
+
 https://account.live.com/developers/applications/summary/000000004C18B43F
+
+
+http://localhost:5959/Home/SaveLink?url=https://www.onliner.by/&title=Onliner.by
+
+
+0-7be84971319302371c0ea566b40fbb70!1-7A18DA52220AB729!2079

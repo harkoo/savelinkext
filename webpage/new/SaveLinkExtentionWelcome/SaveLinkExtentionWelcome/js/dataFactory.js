@@ -1,9 +1,14 @@
 ﻿(function (angular) {
     angular.module('extApp').factory('dataFactory', function () {
 
-        var authentificationTokenKey = "sleAuthentificationToken";
+        var factory = {};
 
-        var getInitialData = function () {
+        var authentificationTokenKey = "sleAuthentificationToken";
+        var linkTitleKey = 'sleLinkTitle';
+        var linkUrlKey = 'sleLinkUrl';
+        var linkTextKey = 'sleLinkTextKey';
+        
+        factory.getInitialData = function () {
             var initialData = JSON.parse($("#operationData").html());
             if (initialData.AccessData) {
                 initialData.AccessData = JSON.parse(initialData.AccessData);
@@ -11,24 +16,33 @@
             return initialData;
         }
 
-        var getAuthentificationToken = function () {
-            return "EwCAAq1DBAAUGCCXc8wU/zFu9QnLdZXy+YnElFkAASwdJIU6lXolLx8zyxvGUPTrlexHQCHKUFcHNzuSWuAykGmfHE3VL042C+H3+qbqPBk/RWmfktkbIb1jJmW+pq1adyn1i6xe4YLQ8BX/FB1oEXZNklL2GpyUUv8yYRugiJMB7XJB+oD+fvJHsl2ajwOFN+aPMeuIK5ia0sa4DBLUoHjeCHT4PGyVzrgHGIxhQ5XpIKYbc1ygWkDbFBwQSnou82b1JxJffVW1mNkxqBN859hea0GSPMsnPKIFN4c+pGUHk8LJsQ5QejZ+QyWWx7hDf1JZhI2P6KAFnICTTJCTFLf4a55Dd/uBIXY8g3uAdZRIcNHs7OV0KU/CcqbxZxcDZgAACEMI9gHfnEnWUAFCl773687DMMZMkL2IFnPdQojUUcDIlJ+MIT8lEqT1IWEeG78wOHCb/Lgrs+t9b7epthKFqnEJF//ohTMraGwd/qW7AMrAP0U4o6OvYo5BmLhnTP4yZILDFvvzujDYp6gJ5FpfY0MH98xamHNPiXfp+AyECy9Hnj2FhYGDIvht23BV2g8Ue2u/34ZL3v3ixzRZZXpd7Pr66u43r8SsCttZaU+vUauGoIHwzvUE5CeDh8Qzb4RwnpvDs8gdXzckfp8agYWKCFA3UfUMiTAHLrgreNYFYvrgrxV02XI9dNk+lYppwErzJR69UuF8JbCVt+qGatM1fy7enQ6Y6ANTJyfQ+z25GkTj0RFWtZhzDoU4ijMTFWMgVUi1d8RZ+UoueXb6nhWBvAzAPVgTXDP6tgPK9ZoMH3241ZZPase4tvAthCj1PwBLQ53GR+P1yC7RSs58AQ==";
+        factory.getLinkInformation = function () {
+            return {
+                title: localStorage.getItem(linkTitleKey),
+                url: localStorage.getItem(linkUrlKey),
+                text: localStorage.getItem(linkTextKey)
+            }
+        }
+
+        factory.setLinkInformation = function(linkInfo) {
+            localStorage.setItem(linkTitleKey, linkInfo.title);
+            localStorage.setItem(linkUrlKey, linkInfo.url);
+            localStorage.setItem(linkTextKey, linkInfo.text);
+        }
+
+        factory.getAuthentificationToken = function () {
+            return "EwCAAq1DBAAUGCCXc8wU/zFu9QnLdZXy+YnElFkAAU48dXMOEX/TyNkDY6CzuJ26HMmV0+PdjAJhs31gVbOh1DStfqFfBEnOjJ1O0C9gRouijz/kkwciyy4VQWjge/ilwkh7qZ9kKudyUHXaM/aumgj399GfGbydc7eU4r66oT9BXWQOQS/ZDNL6MXjfKmrrwKG42QOLTi3LJW0ZE2nGO8XQtaMHeMVpnA9kBFdbrizZmp+uA8syToneco2o5mAsGmCBl28rNq3an2pofDLYjsIh+RKHKYp1eWwN4dnrKYkJRQ2oikB1TVXSxxpVnyKXppujmOEQCRHht0FUR6UqvQKiV8avtKRP7oGnIf1f8phIIBOTU4UcAdBx17rLnngDZgAACMijVbGjK/J8UAGbqMjdGLSHlt9eUD/9LligIz8hWol8yY63AIoccHVT1oRc/K/oZMG0u8Icl5SZgAMNxJKsP3OOqvu2T8Wv1HI5RAjmPJetDqKZ58NVcSoQ/h03k2hudH1qmgouJzOUezXjWmKDWkzotUTL5ONFBRlXhXQWTNLD3EVhctW9VCapqwJVyiX0vk03Z9iNgGU/lsE1u79u3bEDJoVCuSW3S02y94WzX/MNBfYHxm5Ql8oPwKl6+g7obF2+nxiBNdRi0OGpsVpPDMAcZEycSNx2wEgkjKbyZEo6q3kG/mop/JjOHVp5U7BZeDQsWT1EbYYyfumEMlStWLbdBCIh2AohqkycnBTb6Ue5keFRhyl1G1q3fugHx9sGqHqxRjDKHt0QaRDh7jLH76pkqqcDhcEv0mSLtf43ja0dbRdxDBi+ZeEl1o+BkSrphY/gGAm5mDouBct8AQ==";
             return localStorage.getItem(authentificationTokenKey);
         }
 
-        var setAuthentificationToken = function (token) {
+        factory.setAuthentificationToken = function (token) {
             localStorage.setItem(authentificationTokenKey, token);
         }
 
-        var needAuthentification = function () {
-            return getAuthentificationToken() == null;
+        factory.needAuthentification = function () {
+            return this.getAuthentificationToken() == null;
         }
 
-        return {
-            getInitialData: getInitialData,
-            getAuthentificationToken: getAuthentificationToken,
-            needAuthentification: needAuthentification,
-            setAuthentificationToken: setAuthentificationToken
-        };
+        return factory;
     });
 })(window.angular);

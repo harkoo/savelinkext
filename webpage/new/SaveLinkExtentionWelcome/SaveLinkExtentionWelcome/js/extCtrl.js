@@ -16,18 +16,24 @@
         }
 
         if ($scope.initialData.OperationType === "Link") {
+            $scope.linkInfo = dataFactory.getLinkInformation();
             proceedLinkOperation();
         }
         if ($scope.initialData.OperationType === "Auth") {
             proceedAuthOperation();
         }
 
-
         $scope.value = $scope.initialData.OperationType;
 
         $scope.selectPage = function(page) {
-            $scope.selectedPage = page.title;
+            $scope.selectedPage = page;
         };
+
+        $scope.saveLinkInfoToPage = function(page) {
+            if ($scope.selectedPage) {
+                alert("savingPage " + page.title);
+            }
+        }
 
     });
 })(window.angular);

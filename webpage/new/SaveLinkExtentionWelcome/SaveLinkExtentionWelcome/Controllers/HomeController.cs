@@ -21,9 +21,9 @@ namespace SaveLinkExtentionWelcome.Controllers
             else
             {
                 operationData.OperationType = "Link";
-                operationData.Text = Request.QueryString["text"] ?? String.Empty;
-                operationData.Title = Request.QueryString["title"] ?? String.Empty;
-                operationData.Url = Request.QueryString["url"] ?? String.Empty;
+                operationData.Text = Request.QueryString["text"] ?? "testText";
+                operationData.Title = Request.QueryString["title"] ?? "testTitle";
+                operationData.Url = Request.QueryString["url"] ?? "testUrl";
             }
             operationData.JsonData = JsonHelper.JsonSerializer<OperationData>(operationData);
 

@@ -130,7 +130,9 @@
     <Content Include="js\libs\jquery-1.12.4.js" />
     <Content Include="js\dataFactory.js" />
     <Content Include="js\oneNoteFactory.js" />
+    <Content Include="js\saveLinkDialogDirective.js" />
     <Content Include="js\treeViewDirective.js" />
+    <Content Include="templ\save-link-dialog.html" />
     <Content Include="templ\pages-tree.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
