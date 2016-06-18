@@ -32,8 +32,12 @@
         $scope.saveLinkInfoToPage = function(page) {
             if ($scope.selectedPage) {
                 alert("savingPage " + page.title);
+                oneNoteFactory.getPageContent(function (response) {
+                    debugger;
+                    alert(response);
+                }, $scope.selectedPage, dataFactory.getAuthentificationToken());
+
             }
         }
-
     });
 })(window.angular);

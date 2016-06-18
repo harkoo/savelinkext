@@ -35,18 +35,17 @@
             });
         }
 
-        factory.getPageContent = function (callback, token) {
+        factory.getPageContent = function (callback, page, token) {
             $http(
             {
                 method: 'GET',
-                url: "https://www.onenote.com/api/v1.0/me/notes/pages",
+                url: "https://www.onenote.com/api/v1.0/me/notes/pages/" + page.id+ "/content",
                 headers: {
                     'Authorization': 'Bearer ' + token,
                     'Content-Type': 'application/json'
                 }
             }).success(function (data) {
-                var groupedPages = groupBySection(data.value);
-                callback(groupedPages);
+                callback(data);
             }).
         error(function (response) {
 
