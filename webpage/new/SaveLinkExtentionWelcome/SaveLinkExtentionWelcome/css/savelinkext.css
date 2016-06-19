@@ -4,6 +4,9 @@
     width: 350px;
 }
 
+
+
+
 #operationData {
    /* display: none;*/
 }
@@ -27,14 +30,21 @@
     margin: 5px;
 }
 
+.section {
+     display: inline-block;
+     line-height: normal;
+     vertical-align: middle;
+}
+
 .sectionpages {
     display: inline-block;
     line-height: normal;
     vertical-align: middle;
 }
 
-.section {
+#savedLinks {
      display: inline-block;
-     line-height: normal;
-     vertical-align: middle;
+    line-height: normal;
+    vertical-align: middle;
 }
+

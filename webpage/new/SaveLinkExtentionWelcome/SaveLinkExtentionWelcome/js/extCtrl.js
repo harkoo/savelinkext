@@ -15,6 +15,12 @@
             dataFactory.setAuthentificationToken($scope.initialData.AccessData.access_token);
         }
 
+        var addSavedLinksBlock = function(page) {
+            oneNoteFactory.createSavedLinksBlockInPage(function (response) {
+                alert("added block");
+            }, $scope.selectedPage, dataFactory.getAuthentificationToken(), $scope.linkInfo);
+        }
+
         if ($scope.initialData.OperationType === "Link") {
             $scope.linkInfo = dataFactory.getLinkInformation();
             proceedLinkOperation();
@@ -31,10 +37,10 @@
 
         $scope.saveLinkInfoToPage = function(page) {
             if ($scope.selectedPage) {
-                alert("savingPage " + page.title);
                 oneNoteFactory.getPageContent(function (response) {
                     debugger;
-                    alert(response);
+                    var pageHtml = $.parseHTML(response);
+                    addSavedLinksBlock($scope.selectedPage);
                 }, $scope.selectedPage, dataFactory.getAuthentificationToken());
 
             }
