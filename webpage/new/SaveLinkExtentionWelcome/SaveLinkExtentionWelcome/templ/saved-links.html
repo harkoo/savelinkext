@@ -1,1 +1,2 @@
-﻿<h1>Saved Links Block</h1>
+﻿<img src="../img/loading.gif" alt="loading" ng-if="isContentLoading"/>
+<div ng-bind-html="savedLinkHtml" ng-if="!isContentLoading && isPageContentLoaded"></div>

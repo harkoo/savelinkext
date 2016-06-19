@@ -1,5 +1,6 @@
 (function(angular) {
-    angular.module('extApp').controller('extCtrl', function ($scope, dataFactory, oneNoteFactory) {
+    angular.module('extApp').controller('extCtrl', function ($scope, $sce, dataFactory, oneNoteFactory) {
+        $scope.isContentLoading = false;
 
         var proceedLinkOperation = function() {
             if (dataFactory.needAuthentification()) {
@@ -32,7 +33,29 @@
         $scope.value = $scope.initialData.OperationType;
 
         $scope.selectPage = function(page) {
+            $scope.isContentLoading = true;
             $scope.selectedPage = page;
+            oneNoteFactory.getPageContent(function (response) {
+                debugger;
+                $scope.isContentLoading = false;
+                $scope.isPageContentLoaded = true;
+                var pageHtml = $.parseHTML(response);
+                var saveLinkBlock = $(pageHtml).find("[data-id='savedLinksBlock']");
+                if (saveLinkBlock.length >= 1) {
+                    $scope.savedLinkHtml = $sce.trustAsHtml(saveLinkBlock[0].outerHTML);
+                } else {
+                    $scope.savedLinkHtml = $sce.trustAsHtml("<p>Not saved links block yet.</p>");
+                }
+
+
+                
+
+               
+                //addSavedLinksBlock($scope.selectedPage);
+            }, $scope.selectedPage, dataFactory.getAuthentificationToken());
+
+
+
         };
 
         $scope.saveLinkInfoToPage = function(page) {
