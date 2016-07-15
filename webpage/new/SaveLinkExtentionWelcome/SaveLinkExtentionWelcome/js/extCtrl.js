@@ -1,5 +1,5 @@
 (function(angular) {
-    angular.module('extApp').controller('extCtrl', function ($scope, $sce, dataFactory, oneNoteFactory) {
+    angular.module('extApp').controller('extCtrl', function ($scope, $sce, dataFactory, oneNoteFactory, $timeout) {
         $scope.isContentLoading = false;
 
         var proceedLinkOperation = function() {
@@ -16,10 +16,17 @@
             dataFactory.setAuthentificationToken($scope.initialData.AccessData.access_token);
         }
 
-        var addSavedLinksBlock = function(page) {
+        var addSavedLinksBlock = function() {
             oneNoteFactory.createSavedLinksBlockInPage(function (response) {
-                alert("added block");
+                debugger;
+                $timeout($scope.selectPage($scope.selectedPage),100000);
             }, $scope.selectedPage, dataFactory.getAuthentificationToken(), $scope.linkInfo);
+        }
+
+        var addLinkInfoToExistingBlock = function(id) {
+            oneNoteFactory.addLinkInforamationToExistingLinkBlock(function(response) {
+                $timeout($scope.selectPage($scope.selectedPage), 100000);
+            }, $scope.selectedPage, dataFactory.getAuthentificationToken(), $scope.linkInfo, id);
         }
 
         if ($scope.initialData.OperationType === "Link") {
@@ -36,8 +43,7 @@
             $scope.isContentLoading = true;
             $scope.selectedPage = page;
             oneNoteFactory.getPageContent(function (response) {
-                debugger;
-                $scope.isContentLoading = false;
+               $scope.isContentLoading = false;
                 $scope.isPageContentLoaded = true;
                 var pageHtml = $.parseHTML(response);
                 var saveLinkBlock = $(pageHtml).find("[data-id='savedLinksBlock']");
@@ -46,11 +52,6 @@
                 } else {
                     $scope.savedLinkHtml = $sce.trustAsHtml("<p>Not saved links block yet.</p>");
                 }
-
-
-                
-
-               
                 //addSavedLinksBlock($scope.selectedPage);
             }, $scope.selectedPage, dataFactory.getAuthentificationToken());
 
@@ -60,10 +61,17 @@
 
         $scope.saveLinkInfoToPage = function(page) {
             if ($scope.selectedPage) {
+                $scope.isContentLoading = true;
                 oneNoteFactory.getPageContent(function (response) {
-                    debugger;
+                    $scope.isContentLoading = true;
                     var pageHtml = $.parseHTML(response);
-                    addSavedLinksBlock($scope.selectedPage);
+                    var blocks = $(pageHtml).find("[data-id='savedLinksBlock']");
+                    if (blocks.length > 0) {
+                        addLinkInfoToExistingBlock(blocks[0].id);
+                    } else {
+                        addSavedLinksBlock();
+                    }
+                    
                 }, $scope.selectedPage, dataFactory.getAuthentificationToken());
 
             }
